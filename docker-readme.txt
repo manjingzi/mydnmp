@@ -17,10 +17,10 @@ mv composer.phar /usr/local/bin/composer
 
 # 环境配置 
 ## nginx:1.15.12
-## php:7.2.17
 ## mysql:5.7.25
-## redis:5.0.4
-## swoole:4.3.3
+## php:7.2.17
+## php redis:5.0.4
+## php swoole:4.3.3
 
 # 安装后的工作目录  
 ├ www   					工作目录      
@@ -100,10 +100,13 @@ docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) && docker rmi $(d
 docker images && docker ps -a
 
 ## 重启ningx
-docker exec dnmp_nginx_1 nginx -s reload
+docker exec swoole_nginx_1 nginx -s reload
 
 ## 启动镜像
-docker start dnmp_redis_1 dnmp_mysql_1 dnmp_php72_1 dnmp_nginx_1
+docker start swoole_redis_1 swoole_mysql_1 swoole_php72_1 swoole_nginx_1
+## 启动镜像
+docker-compose start
 
-在容器 dnmp_php72_1 中开启一个交互模式的终端:  MINGW64 无效
-docker exec -it  dnmp_php72_1 /bin/bash
+
+在容器 swoole_php72_1 中开启一个交互模式的终端:  MINGW64 无效
+docker exec -it  swoole_php72_1 /bin/bash
