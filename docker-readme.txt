@@ -54,6 +54,8 @@ cd swoole
 ## 运行镜像环境配置compose以守护进程模式运行加
 docker-compose up -d
 
+docker-compose up -d --build
+
 cd ..
 
 mkdir www
