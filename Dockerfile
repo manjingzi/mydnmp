@@ -15,6 +15,12 @@ RUN if [ "${REPLACE_SOURCE_LIST}" = "true" ]; then \
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' > /etc/timezone
 
+# Install extensions from source
+COPY ./extensions /tmp/extensions
+RUN chmod +x /tmp/extensions/install.sh \
+    && /tmp/extensions/install.sh \
+    && rm -rf /tmp/extensions	
+	
 # Libs
 RUN apt-get update \
     && apt-get install -y \
@@ -46,34 +52,4 @@ RUN docker-php-ext-install mysqli
 
 # Bcmath extension
 RUN docker-php-ext-install bcmath
-
-# Redis extension
-RUN wget http://pecl.php.net/get/redis-${PHP_REDIS}.tgz -O /tmp/redis.tar.tgz \
-    && pecl install /tmp/redis.tar.tgz \
-    && rm -rf /tmp/redis.tar.tgz \
-    && docker-php-ext-enable redis
-
-# Swoole extension
-RUN wget https://github.com/swoole/swoole-src/archive/v${PHP_SWOOLE}.tar.gz -O swoole.tar.gz \
-    && mkdir -p swoole \
-    && tar -xf swoole.tar.gz -C swoole --strip-components=1 \
-    && rm swoole.tar.gz \
-    && ( \
-    cd swoole \
-    && phpize \
-    && ./configure --enable-mysqlnd --enable-openssl --enable-http2 \
-    && make -j$(nproc) \
-    && make install \
-    ) \
-    && rm -r swoole \
-    && docker-php-ext-enable swoole
-	
-# Install easyswoole
-RUN cd /var/www/html/ \
-    && composer require easyswoole/easyswoole=${EASYSWOOLE_VERSION} \
-    && php vendor/bin/easyswoole install
-
-EXPOSE 9501
-
-ENTRYPOINT ["php", "/var/www/html/easyswoole", "start"]	
 	
