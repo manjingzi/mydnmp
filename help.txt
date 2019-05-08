@@ -1,5 +1,6 @@
 ## 本地安装 docker docker-compose(window不用安装 docker自带docker-compose)
 ## 本地安装 git 如果没有安装需要手动下载源码
+## 以下命令在windows10 中的 git base 执行
 
 ## 获取源代码
 git clone https://github.com/SamJia/acemap-yii2-2019.git
@@ -34,10 +35,8 @@ php init
 #######################################################
 
 ## 本地未安装php 和 composer 可以进入docker服务器安装
-## docker exec 命令在window cmd 有效 在 git MINGW64 无效 
-
 ## 进入指定的容器 如:在容器 dnmp_php72_1 中开启一个交互模式的终端
-## WINDOWS中 MINGW64 执行无效 使用windows自带的powershell  默认进入容器/var/www/html/
+## WINDOWS中 git base 执行无效 使用windows自带的powershell  默认进入容器/var/www/html/
 docker exec -it dnmp_php72_1 /bin/bash
 
 ## 进入开发项目
@@ -118,7 +117,7 @@ docker-compose up -d --force-recreate
 docker exec dnmp_nginx_1 nginx -s reload
 
 ## 进入指定的容器 如:在容器 dnmp_php72_1 中开启一个交互模式的终端
-## WINDOWS中 MINGW64 执行无效 使用windows自带的powershell  默认进入容器/var/www/html/
+## WINDOWS中 git base 执行无效 使用windows自带的powershell  默认进入容器/var/www/html/
 docker exec -it dnmp_php72_1 /bin/bash
 
 #######################################################
@@ -146,7 +145,7 @@ docker images
 ## 停止容器
 docker stop 容器ID
 
-## 批量停止容器
+## 批量停止容器 相当于docker-compose stop
 docker stop $(docker ps -a -q) 
 
 #######################################################
