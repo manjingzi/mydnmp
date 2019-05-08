@@ -47,13 +47,16 @@ php init
 ## 进入指定的容器 如:在容器 dnmp_php72_1 中开启一个交互模式的终端
 ## WINDOWS中 git base 执行无效 使用windows自带的powershell  默认进入容器/var/www/html/
 docker exec -it dnmp_php72_1 /bin/bash
-## 新建目录www 固定目录不能修改
-mkdir www
+## 新建目录dump_www 固定目录不能修改
+mkdir dump_www
 
 ## 进入目录
-cd www
+cd dump_www
 
-## 获取源代码
+## 获取测试mysql redis是否正常工作 通过http://127.0.0.1 或 http://localhost访问 
+git clone https://github.com/SamJia/acemap-yii2-2019.git
+
+## 获取源代码 通过http://jjcms.com 或 https://jjcms.com 访问 需要配置本地域名指向
 git clone https://github.com/SamJia/acemap-yii2-2019.git
 
 ## 进入开发项目
@@ -74,9 +77,7 @@ php init
 #######################################################
 ## 安装后的工作目录
 
-├ www
-├── acemap-yii2-2019		项目目录  			jjcms.com 访问
-├── test					项目环境测试目录	localhost 访问
+
 ├ dnmp
 ├── conf                    配置文件目录
 │   ├── conf.d              Nginx用户站点配置目录
@@ -87,7 +88,12 @@ php init
 ├── Dockerfile              PHP镜像构建文件
 ├── log                     Nginx日志目录
 ├── mysql                   MySQL数据目录
-└── source.list             Debian源文件
+├── source.list             Debian源文件
+├ 
+├ 
+├ dump_www					需手动新建，目录名称是固定不能修改
+├── acemap-yii2-2019		项目目录  			jjcms.com 访问
+├── test					项目环境测试目录	localhost 127.0.0.1 访问
 
 ## 数据库配置 默认数据库使用了局域网的10.10.10.4
 host:mysql
