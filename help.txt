@@ -71,7 +71,7 @@ php init
 ├── mysql                   MySQL数据目录
 └── source.list             Debian源文件
 
-## 数据库配置 
+## 数据库配置 默认数据库使用了局域网的10.10.10.4
 host:mysql
 port:3306 
 username:root
