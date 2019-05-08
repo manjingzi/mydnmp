@@ -23,8 +23,8 @@ cd ../
 ## 本地已安装php 和 php composer					 ##
 #######################################################
 
-## 新建目录dump_www 固定目录不能修改
-mkdir dump_www
+## 新建目录dnmp_www 固定目录不能修改
+mkdir dnmp_www
 
 ## 进入目录
 cd www
@@ -49,11 +49,11 @@ php init
 ## WINDOWS中 git base 执行无效 使用windows自带的powershell  默认进入容器/var/www/html/
 docker exec -it dnmp_php72_1 /bin/bash
 
-## 新建目录dump_www 固定目录不能修改
-mkdir dump_www
+## 新建目录dnmp_www 固定目录不能修改
+mkdir dnmp_www
 
 ## 进入目录
-cd dump_www
+cd dnmp_www
 
 ## 获取测试mysql redis是否正常工作 通过http://127.0.0.1 或 http://localhost访问 
 git clone https://github.com/SamJia/acemap-yii2-2019.git
@@ -93,7 +93,7 @@ php init
 ├── source.list             Debian源文件
 ├ 
 ├ 
-├ dump_www					需手动新建，目录名称是固定不能修改
+├ dnmp_www					需手动新建，目录名称是固定不能修改
 ├── acemap-yii2-2019		项目目录  			jjcms.com 访问
 ├── test					项目环境测试目录	localhost 127.0.0.1 访问
 
