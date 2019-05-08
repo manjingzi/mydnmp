@@ -2,6 +2,24 @@
 ## 本地安装 git 如果没有安装需要手动下载源码
 ## 以下命令在windows10 中的 git base 执行
 
+## 安装后的工作目录
+├ dnmp
+├── conf                    配置文件目录
+│   ├── conf.d              Nginx用户站点配置目录
+│   ├── nginx.conf          Nginx默认配置文件
+│   ├── mysql.cnf           MySQL用户配置文件
+│   ├── php-fpm.conf        PHP-FPM配置文件（部分会覆盖php.ini配置）
+│   └── php.ini             PHP默认配置文件
+├── Dockerfile              PHP镜像构建文件
+├── log                     Nginx日志目录
+├── mysql                   MySQL数据目录
+├── source.list             Debian源文件
+├ 
+├ 
+├ dnmp_www					需手动新建，目录名称是固定不能修改
+├── acemap-yii2-2019		项目目录  			jjcms.com 访问
+├── test					项目环境测试目录	localhost 127.0.0.1 访问
+
 ## 获取源代码
 git clone https://github.com/manjingzi/dnmp.git
 
@@ -77,25 +95,6 @@ php init
 ## 关闭计算机前执行停止容器命令 docker-compose stop
 
 #######################################################
-## 安装后的工作目录
-
-
-├ dnmp
-├── conf                    配置文件目录
-│   ├── conf.d              Nginx用户站点配置目录
-│   ├── nginx.conf          Nginx默认配置文件
-│   ├── mysql.cnf           MySQL用户配置文件
-│   ├── php-fpm.conf        PHP-FPM配置文件（部分会覆盖php.ini配置）
-│   └── php.ini             PHP默认配置文件
-├── Dockerfile              PHP镜像构建文件
-├── log                     Nginx日志目录
-├── mysql                   MySQL数据目录
-├── source.list             Debian源文件
-├ 
-├ 
-├ dnmp_www					需手动新建，目录名称是固定不能修改
-├── acemap-yii2-2019		项目目录  			jjcms.com 访问
-├── test					项目环境测试目录	localhost 127.0.0.1 访问
 
 ## 数据库配置 默认数据库使用了局域网的10.10.10.4
 host:mysql
