@@ -77,12 +77,15 @@ password:root
 host:redis
 port:6379
 
+## 访问网站
+http://127.0.0.1
+
+## https访问网站需要设置
 ## windows 配置域名指向
 ## C:\Windows\System32\drivers\etc\hosts 配置域名指向
 
-127.0.0.1 jjcms.com #测试https 证书是正规申请的不会阻拦
+127.0.0.1 jjcms.com
 
-## 访问网站
 http://jjcms.com/check #测试yii2 mysql redis 状态
 
 ## 前端
