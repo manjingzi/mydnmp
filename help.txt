@@ -1,10 +1,10 @@
 ## 获取源代码
 git clone https://github.com/SamJia/acemap-yii2-2019.git
 
-git clone https://github.com/manjingzi/dnmp_swoole.git
+git clone https://github.com/manjingzi/dnmp.git
 
 ## 进入目录
-cd dnmp_swoole/dnmp
+cd dnmp
 
 ## 运行镜像环境配置compose以守护进程模式运行
 docker-compose up -d --build
@@ -20,7 +20,7 @@ docker-compose up -d --build
 ## 本地已安装php 和 php composer
 
 ## 进入开发项目
-cd ../../acemap-yii2-2019
+cd ../acemap-yii2-2019
 
 ## 项目组建更新
 composer update
@@ -55,7 +55,7 @@ php init
 ## 安装后的工作目录
 
 ├ acemap-yii2-2019
-├ dnmp_swoole
+├ dnmp
 ├── conf                    配置文件目录
 │   ├── conf.d              Nginx用户站点配置目录
 │   ├── nginx.conf          Nginx默认配置文件
@@ -154,3 +154,11 @@ docker rmi 镜像ID和名称
 
 ## 删除全部镜像
 docker rmi $(docker images) 
+
+#######################################################
+
+## 一起查看容器和镜像
+docker ps -a && docker images
+
+## 一起删除容器和镜像
+docker rm $(docker ps -a -q) && docker rmi $(docker images) 
