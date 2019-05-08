@@ -1,0 +1,160 @@
+# 安装后的工作目录  
+├ www   					工作目录
+├── swoole					swoole项目
+├ dnmp
+├── conf                    配置文件目录
+│   ├── conf.d              Nginx用户站点配置目录
+│   ├── nginx.conf          Nginx默认配置文件
+│   ├── mysql.cnf           MySQL用户配置文件
+│   ├── php-fpm.conf        PHP-FPM配置文件（部分会覆盖php.ini配置）
+│   └── php.ini             PHP默认配置文件
+├── Dockerfile              PHP镜像构建文件
+├── log                     Nginx日志目录
+├── mysql                   MySQL数据目录
+└── source.list             Debian源文件
+
+## 使用客户端工具navicat 
+
+## 数据库配置 
+
+host:localhost
+port:3306 
+username:root
+password:root
+
+#######################################################
+
+## windows 配置域名指向
+## C:\Windows\System32\drivers\etc\hosts 配置域名指向
+
+127.0.0.1 jjcms.com #测试https 证书是正规申请的不会阻拦
+
+
+## 访问网站
+http://jjcms.com/check #测试yii2 mysql redis 状态
+
+## 前端
+http://jjcms.com/ 
+
+## 后端
+http://jjcms.com/backend/ 
+
+## api
+http://jjcms.com/api/ 
+
+#######################################################
+## docker-compose安装镜像
+
+## 随便新建一个工作文件夹 如：project
+
+mkdir project
+
+cd project
+
+## 获取源代码
+git clone https://github.com/sushipai/dnmp_swoole_yii2.git
+
+cd dnmp_swoole_yii2/dnmp
+
+## 运行镜像环境配置compose以守护进程模式运行
+docker-compose up -d --build
+
+## 看到以下字符说明安装成功
+## Creating dnmp_mysql_1 ... done
+## Creating dnmp_nginx_1 ... done
+## Creating dnmp_php72_1 ... done
+## Creating dnmp_redis_1 ... done
+
+docker ps -a
+## CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                                        NAMES
+## 1d8ab909bd79        mysql:5.7.25           "docker-entrypoint.s…"   22 seconds ago      Up 17 seconds       0.0.0.0:3306->3306/tcp, 33060/tcp            dnmp_mysql_1
+## 00ced12a9c3d        redis:5.0.4-alpine     "redis-server /etc/r…"   22 seconds ago      Up 17 seconds       0.0.0.0:6379->6379/tcp                       dnmp_redis_1
+## dd3845642d19        nginx:1.15.12-alpine   "nginx -g 'daemon of…"   22 seconds ago      Up 18 seconds       0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp     dnmp_nginx_1
+## ead1928d264b        dnmp_php72             "docker-php-entrypoi…"   22 seconds ago      Up 18 seconds       9000/tcp, 0.0.0.0:9500-9501->9500-9501/tcp   dnmp_php72_1
+
+docker images
+## REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+## dnmp_php72          latest              a7f0a0681830        47 seconds ago      465MB
+## php                 7.2.17-fpm          c5634557fd64        8 days ago          366MB
+## nginx               1.15.12-alpine      0be75340bd9b        2 weeks ago         16.1MB
+## redis               5.0.4-alpine        c8eda26fcdab        3 weeks ago         50.9MB
+## mysql               5.7.25              98455b9624a9        5 weeks ago         372MB
+
+#######################################################
+## yii2项目
+
+## docker exec命令在window cmd 有效 在 git MINGW64 无效 
+## 进入dnmp_php72_1
+
+docker exec -it dnmp_php72_1 /bin/bash
+
+cd /var/www/html/yii2
+
+composer update
+
+php init # 选择开发版 按0 再按yes
+
+#######################################################
+
+## easyswoole开发手册 https://www.easyswoole.com/Manual/3.x/Cn/_book/
+## docker exec命令在window cmd 有效 在 git MINGW64 无效 
+## 进入dnmp_php72_1
+
+docker exec -it dnmp_php72_1 /bin/bash
+
+cd /var/www/html/easyswoole
+
+composer update
+
+
+## 运行easyswoole
+docker exec -it dnmp_php72_1 /bin/bash
+cd easyswoole
+php easyswoole start
+
+## 访问网站
+http://127.0.0.1:9501 
+
+## websocket访问
+ws://127.0.0.1:9501
+
+#######################################################
+## compose以守护进程模式运行加-d选项
+
+docker-compose up -d
+
+docker-compose up  会优先使用已有的容器，而不是重新创建容器。
+
+docker-compose up -d --force-recreate 使用 --force-recreate 可以强制重建容器 （否则只能在容器配置有更改时才会重建容器）
+
+docker-compose down 停止所有容器，并删除容器 （这样下次使用docker-compose up时就一定会是新容器了）
+
+#######################################################
+
+## 查看容器
+docker ps -a
+
+## 查看镜像
+docker images
+
+## 批量停止 && 批量删除
+docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
+ 
+## 删除镜像
+docker rmi $(docker images) 
+
+## 查看容器和镜像
+docker images && docker ps -a
+
+## 重启ningx
+docker exec dnmp_nginx_1 nginx -s reload
+
+## 启动镜像
+docker start swoole_redis_1 dnmp_mysql_1 dnmp_php72_1 dnmp_nginx_1
+
+## 启动镜像
+docker-compose start
+
+## 在容器 dnmp_php72_1 中开启一个交互模式的终端:  MINGW64 无效
+
+docker exec -it dnmp_php72_1 /bin/bash
