@@ -20,11 +20,11 @@ docker-compose up -d --build
 cd ../
 
 #######################################################
-## 本地已安装php 和 php composer
+## 本地已安装php 和 php composer					 ##
+#######################################################
 
-## 新建目录www 固定目录不能修改
-
-mkdir www
+## 新建目录dump_www 固定目录不能修改
+mkdir dump_www
 
 ## 进入目录
 cd www
@@ -42,11 +42,13 @@ composer update
 php init 
 
 #######################################################
+## 本地未安装php 和 composer 可以进入docker服务器安装##	
+#######################################################
 
-## 本地未安装php 和 composer 可以进入docker服务器安装
 ## 进入指定的容器 如:在容器 dnmp_php72_1 中开启一个交互模式的终端
 ## WINDOWS中 git base 执行无效 使用windows自带的powershell  默认进入容器/var/www/html/
 docker exec -it dnmp_php72_1 /bin/bash
+
 ## 新建目录dump_www 固定目录不能修改
 mkdir dump_www
 
