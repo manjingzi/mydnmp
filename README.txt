@@ -3,8 +3,6 @@
 ## 以下命令在windows10 中的 git base 执行
 
 ## 获取源代码
-git clone https://github.com/SamJia/acemap-yii2-2019.git
-
 git clone https://github.com/manjingzi/dnmp.git
 
 ## 进入目录
@@ -19,12 +17,23 @@ docker-compose up -d --build
 ## Creating dnmp_php72_1 ... done
 ## Creating dnmp_redis_1 ... done
 
-#######################################################
+cd ../
 
+#######################################################
 ## 本地已安装php 和 php composer
 
+## 新建目录www 固定目录不能修改
+
+mkdir www
+
+## 进入目录
+cd www
+
+## 获取源代码
+git clone https://github.com/SamJia/acemap-yii2-2019.git
+
 ## 进入开发项目
-cd ../acemap-yii2-2019
+cd acemap-yii2-2019
 
 ## 项目组建更新
 composer update
@@ -38,6 +47,14 @@ php init
 ## 进入指定的容器 如:在容器 dnmp_php72_1 中开启一个交互模式的终端
 ## WINDOWS中 git base 执行无效 使用windows自带的powershell  默认进入容器/var/www/html/
 docker exec -it dnmp_php72_1 /bin/bash
+## 新建目录www 固定目录不能修改
+mkdir www
+
+## 进入目录
+cd www
+
+## 获取源代码
+git clone https://github.com/SamJia/acemap-yii2-2019.git
 
 ## 进入开发项目
 cd acemap-yii2-2019
@@ -57,7 +74,9 @@ php init
 #######################################################
 ## 安装后的工作目录
 
-├ acemap-yii2-2019
+├ www
+├── acemap-yii2-2019		项目目录  			jjcms.com 访问
+├── test					项目环境测试目录	localhost 访问
 ├ dnmp
 ├── conf                    配置文件目录
 │   ├── conf.d              Nginx用户站点配置目录
