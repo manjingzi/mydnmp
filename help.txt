@@ -16,6 +16,7 @@ docker-compose up -d --build
 ## Creating dnmp_redis_1 ... done
 
 #######################################################
+
 ## 本地已安装php 和 php composer
 
 ## 进入开发项目
@@ -28,6 +29,7 @@ composer update
 php init 
 
 #######################################################
+
 ## 本地未安装php 和 composer 可以进入docker服务器安装
 ## docker exec 命令在window cmd 有效 在 git MINGW64 无效 
 
@@ -43,19 +45,11 @@ composer update
 ## 初始化项目 选择开发版 按0 再按yes
 php init
 
-## 关闭计算机前执行停止容器命令，
-docker-compose stop
+#######################################################
 
+## 安装完成 安装完成 安装完成
 
-
-
-
-
-
-
-
-
-
+## 关闭计算机前执行停止容器命令 docker-compose stop
 
 #######################################################
 ## 安装后的工作目录
@@ -100,15 +94,26 @@ http://jjcms.com/backend/
 ## api
 http://jjcms.com/api/ 
 
-## 查看blog教材 https://blog.csdn.net/qq_14845119/article/details/83276414
+## 查看docker-compose命令教程 https://blog.csdn.net/qq_14845119/article/details/83276414
+
+#######################################################
 
 ## compose以守护进程模式运行加-d选项
-
 docker-compose up -d
 
-docker-compose up  会优先使用已有的容器，而不是重新创建容器。
+## 会优先使用已有的容器，而不是重新创建容器。
+docker-compose up  
 
-docker-compose up -d --force-recreate 使用 --force-recreate 可以强制重建容器 （否则只能在容器配置有更改时才会重建容器）
+## 使用 --force-recreate 可以强制重建容器 （否则只能在容器配置有更改时才会重建容器）
+docker-compose up -d --force-recreate 
+
+## 修改配置后重启ningx 
+docker exec dnmp_nginx_1 nginx -s reload
+
+## 进入指定的容器 如:在容器 dnmp_php72_1 中开启一个交互模式的终端:  MINGW64 无效
+docker exec -it dnmp_php72_1 /bin/bash
+
+#######################################################
 
 ## 启动容器
 docker-compose up
@@ -122,29 +127,30 @@ docker-compose down
 ## 启动容器
 docker-compose start
 
-## 查看容器和镜像
-docker images && docker ps -a
+#######################################################
 
 ## 查看容器
 docker ps -a
 
+## 查看镜像
+docker images
+
+## 停止容器
+docker stop 容器ID
+
+## 批量停止容器
+docker stop $(docker ps -a -q) 
+
+#######################################################
+
 ## 删除容器
 docker rm 容器ID
 
-## 查看镜像
-docker images
+## 批量删除容器
+docker rm $(docker ps -a -q)
 
 ## 删除镜像
 docker rmi 镜像ID和名称
 
-## 批量停止容器 && 批量删除容器
-docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
- 
 ## 删除全部镜像
 docker rmi $(docker images) 
-
-## 修改配置后重启ningx 
-docker exec dnmp_nginx_1 nginx -s reload
-
-## 进入指定的容器 如:在容器 dnmp_php72_1 中开启一个交互模式的终端:  MINGW64 无效
-docker exec -it dnmp_php72_1 /bin/bash
