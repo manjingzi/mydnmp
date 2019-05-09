@@ -1,4 +1,7 @@
 ## 本地安装 docker docker-compose(window不用安装 docker自带docker-compose)
+## 网易加速器链接: http://hub-mirror.c.163.com
+## ustc加速器链接:https://docker.mirrors.ustc.edu.cn
+## windows cmder软件 https://www.jianshu.com/p/5b7c985240a7
 ## 本地安装 git 如果没有安装需要手动下载源码
 ## 以下命令在windows10 中的 git base 执行
 
