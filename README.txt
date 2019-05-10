@@ -91,13 +91,20 @@ composer update
 ## 初始化项目 选择开发版 按0 再按yes
 php init
 
-#######################################################
-
-## 安装完成 安装完成 安装完成
-
-## 关闭计算机前执行停止容器命令 docker-compose stop
-
-#######################################################
+##########################################################################################
+## 注意事项																				##
+## 关闭计算机前执行停止容器命令 docker-compose stop										##
+## 第二次启动																			##
+docker-compose start																	##
+如果发现启动失败 发现错误如driver failed programming external connectivity on endpoint	##
+Starting mysql ... error																##
+Starting redis ... error																##
+Starting php72 ... error																##
+Starting nginx ... error																##
+失败原因：docker服务启动时定义的自定义链DOCKER由于某种原因被清掉						##
+重启docker服务及可重新生成自定义链DOCKER												##
+解决方法:重启docker服务后再启动容器														##
+##########################################################################################
 
 ## 数据库配置 默认数据库使用了局域网的10.10.10.4
 host:mysql
