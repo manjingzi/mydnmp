@@ -116,25 +116,24 @@ password:root
 host:redis
 port:6379
 
-## 访问网站
-http://127.0.0.1
 
 ## https访问网站需要设置
 ## windows 配置域名指向
 ## C:\Windows\System32\drivers\etc\hosts 配置域名指向
 
-127.0.0.1 jjcms.com
+127.0.0.1 acemap.jjcms.com
 
-http://jjcms.com/check #测试yii2 mysql redis 状态
+## 测试yii2 mysql redis 状态
+http://127.0.0.1
 
 ## 前端
-http://jjcms.com/ 
+http://acemap.jjcms.com/
 
 ## 后端
-http://jjcms.com/backend/ 
+http://acemap.jjcms.com/backend/
 
 ## api
-http://jjcms.com/api/ 
+http://acemap.jjcms.com/api/
 
 ## 查看docker-compose命令教程 https://blog.csdn.net/qq_14845119/article/details/83276414
 
