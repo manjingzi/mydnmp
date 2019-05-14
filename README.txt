@@ -4,7 +4,7 @@
 ## windows cmder软件 https://www.jianshu.com/p/5b7c985240a7
 ## 本地安装 git 如果没有安装需要手动下载源码
 ## 以下命令在windows10 中的 git base 执行
-## 免费申请HTTPS https://freessl.cn/
+## 免费申请HTTPS https://freessl.cn/ 选择 Let’s Encrypt
 
 ## 安装后的工作目录
 ├ dnmp
