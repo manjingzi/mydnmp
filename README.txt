@@ -77,10 +77,10 @@ mkdir dnmp_www
 ## 进入目录
 cd dnmp_www
 
-## 获取测试mysql redis是否正常工作 通过http://127.0.0.1 或 http://localhost访问 
+## 获取测试mysql redis是否正常工作 通过https://www.jjcms.com访问 
 git clone https://github.com/SamJia/acemap-yii2-2019.git
 
-## 获取源代码 通过http://jjcms.com 或 https://jjcms.com 访问 需要配置本地域名指向
+## 获取源代码 通过https://acemap.jjcms.com 访问 需要配置本地域名指向
 git clone https://github.com/SamJia/acemap-yii2-2019.git
 
 ## 进入开发项目
@@ -117,7 +117,6 @@ password:root
 host:redis
 port:6379
 
-
 ## https访问网站需要设置
 ## windows 配置域名指向
 ## C:\Windows\System32\drivers\etc\hosts 配置域名指向
@@ -125,7 +124,7 @@ port:6379
 127.0.0.1 acemap.jjcms.com
 
 ## 测试yii2 mysql redis 状态
-http://127.0.0.1
+http://www.jjcms.com/
 
 ## 前端
 http://acemap.jjcms.com/
@@ -184,6 +183,7 @@ docker stop 容器ID
 ## 批量停止容器 相当于docker-compose stop
 docker stop $(docker ps -a -q) 
 docker stop `docker ps -a -q`
+
 #######################################################
 
 ## 删除容器
