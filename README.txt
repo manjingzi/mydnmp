@@ -21,8 +21,8 @@
 ├ 
 ├ 
 ├ dnmp_www					需手动新建，目录名称是固定不能修改
-├── acemap-yii2-2019		项目目录  			jjcms.com 访问
-├── test					项目环境测试目录	localhost 127.0.0.1 访问
+├── acemap-yii2-2019		项目目录  			acemap.jjcms.com 访问
+├── test					项目环境测试目录	www.jjcms.com 访问
 
 ## 获取源代码
 git clone https://github.com/manjingzi/dnmp.git
@@ -122,6 +122,9 @@ port:6379
 ## C:\Windows\System32\drivers\etc\hosts 配置域名指向
 
 127.0.0.1 acemap.jjcms.com
+127.0.0.1 old.jjcms.com
+127.0.0.1 www.jjcms.com
+127.0.0.1 api.jjcms.com
 
 ## 测试yii2 mysql redis 状态
 http://www.jjcms.com/
