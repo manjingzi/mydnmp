@@ -183,7 +183,7 @@ docker stop 容器ID
 
 ## 批量停止容器 相当于docker-compose stop
 docker stop $(docker ps -a -q) 
-
+docker stop `docker ps -a -q`
 #######################################################
 
 ## 删除容器
@@ -191,6 +191,7 @@ docker rm 容器ID
 
 ## 批量删除容器
 docker rm $(docker ps -a -q)
+docker rm `docker ps -a -q`
 
 ## 删除镜像
 docker rmi 镜像ID和名称
@@ -204,4 +205,5 @@ docker rmi $(docker images)
 docker ps -a && docker images
 
 ## 一起删除容器和镜像
-docker rm $(docker ps -a -q) && docker rmi $(docker images) 
+docker rm $(docker ps -a -q) && docker rmi $(docker images -q) 
+docker rm `docker ps -a -q` && docker rmi `docker images -q`
