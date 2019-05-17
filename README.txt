@@ -122,6 +122,7 @@ port:6379
 ## C:\Windows\System32\drivers\etc\hosts 配置域名指向
 
 127.0.0.1 acemap.jjcms.com
+127.0.0.1 acemap-api.jjcms.com
 127.0.0.1 old.jjcms.com
 127.0.0.1 www.jjcms.com
 127.0.0.1 api.jjcms.com
@@ -136,7 +137,7 @@ http://acemap.jjcms.com/
 http://acemap.jjcms.com/backend/
 
 ## api
-http://acemap.jjcms.com/api/
+http://acemap-api.jjcms.com/
 
 ## 查看docker-compose命令教程 https://blog.csdn.net/qq_14845119/article/details/83276414
 
