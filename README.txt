@@ -209,5 +209,4 @@ docker rmi $(docker images)
 docker ps -a && docker images
 
 ## 一起删除容器和镜像
-docker rm $(docker ps -a -q) && docker rmi $(docker images -q) 
-docker rm `docker ps -a -q` && docker rmi `docker images -q`
+docker rm $(docker ps -a -q) && docker rmi $(docker images -a -q) -f
