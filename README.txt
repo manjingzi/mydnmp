@@ -210,3 +210,21 @@ docker ps -a && docker images
 
 ## 一起删除容器和镜像
 docker rm $(docker ps -a -q) && docker rmi $(docker images -a -q) -f
+
+#######################################################
+info 查看redis 信息
+dbsize 查看redis keys数量
+
+docker中清除redis数据
+
+进入redis客户端
+docker exec -it 容器ID redis-cli
+
+清除缓存
+flushall  所有数据库
+flushdb  当前库
+
+清除指定key
+
+查询所有key：keys *
+删除指定key：del xxx（key）
