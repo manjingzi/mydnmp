@@ -212,13 +212,17 @@ docker ps -a && docker images
 docker rm $(docker ps -a -q) && docker rmi $(docker images -a -q) -f
 
 #######################################################
+linux redis 操作 批量模糊删除key
+redis-cli keys cache* | xargs redis-cli del
+
+进入redis客户端
+docker exec -it 容器ID redis-cli
+
 info 查看redis 信息
 dbsize 查看redis keys数量
 
 docker中清除redis数据
 
-进入redis客户端
-docker exec -it 容器ID redis-cli
 
 清除缓存
 flushall  所有数据库
