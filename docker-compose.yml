@@ -25,7 +25,7 @@ services:
     networks:
       - default
 
-  php:
+  php72:
     build:
       context: .
       args:
