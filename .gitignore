@@ -1,2 +1,4 @@
 .idea
 .DS_Store
+conf/redis/dump.rdb
+conf/redis/dump.rdb.bk
