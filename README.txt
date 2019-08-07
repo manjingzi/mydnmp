@@ -232,3 +232,22 @@ flushdb  当前库
 
 查询所有key：keys *
 删除指定key：del xxx（key）
+
+
+
+
+
+
+
+
+docker run --name centos610 -it -p 50001:22 centos:6.10 /bin/bash
+
+
+
+
+centos610 容器提交镜像到Hub.docker.com
+
+docker commit -a "用户名" -m "描述" 容器ID hub.docker.com仓库名
+
+docker commit -a "sushipai" -m "centos 6.10" 651a8541a47d sushipai/centos610
+
