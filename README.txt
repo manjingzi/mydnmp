@@ -238,9 +238,9 @@ flushdb  当前库
 
 
 
+docker run -it -d -p 8080:80 容器ID /bin/bash
 
-
-docker run --name centos610 -it -p 50001:22 centos:6.10 /bin/bash
+docker run -it -d -p 8080:80 cec8672d987b /bin/bash
 
 
 
@@ -249,5 +249,5 @@ centos610 容器提交镜像到Hub.docker.com
 
 docker commit -a "用户名" -m "描述" 容器ID hub.docker.com仓库名
 
-docker commit -a "sushipai" -m "centos 6.10" 651a8541a47d sushipai/centos610
+docker commit -a "sushipai" -m "centos 6.10" cec8672d987b sushipai/centos610
 
