@@ -16,6 +16,7 @@ RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 
 # Install extensions from source
 COPY ./extensions /tmp/extensions
+
 RUN chmod +x /tmp/extensions/install.sh \
     && /tmp/extensions/install.sh \
     && rm -rf /tmp/extensions	
