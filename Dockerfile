@@ -56,11 +56,12 @@ RUN mkdir -p /usr/local/share/composer \
 	&& rm -f /tmp/composer-setup.* \
     # 配置composer中国全量镜像
     # && composer config -g repo.packagist composer https://packagist.phpcomposer.com
-	&& composer config -g repo.packagist composer https://packagist.laravel-china.org
+	&& composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 	
 # PDO extension
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install sockets
 
 # Bcmath extension
 RUN docker-php-ext-install bcmath
