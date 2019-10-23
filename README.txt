@@ -186,7 +186,6 @@ docker stop 容器ID
 
 ## 批量停止容器 相当于docker-compose stop
 docker stop $(docker ps -a -q) 
-docker stop `docker ps -a -q`
 
 #######################################################
 
@@ -195,7 +194,6 @@ docker rm 容器ID
 
 ## 批量删除容器
 docker rm $(docker ps -a -q)
-docker rm `docker ps -a -q`
 
 ## 删除镜像
 docker rmi 镜像ID和名称
@@ -209,7 +207,8 @@ docker rmi $(docker images)
 docker ps -a && docker images
 
 ## 一起删除容器和镜像
-docker rm $(docker ps -a -q) && docker rmi $(docker images -a -q) -f
+docker rm $(docker ps -a -q) 
+docker rmi $(docker images -a -q) -f
 
 #######################################################
 linux redis 操作 批量模糊删除key
@@ -217,6 +216,9 @@ redis-cli keys cache* | xargs redis-cli del
 
 进入redis客户端
 docker exec -it 容器ID redis-cli
+
+登录redis服务器
+redis-cli -h 127.0.0.1-p 6379
 
 info 查看redis 信息
 dbsize 查看redis keys数量
@@ -234,10 +236,6 @@ flushdb  当前库
 删除指定key：del xxx（key）
 
 
-
-
-
-
 # docker run -it -d -p 8080:80 容器ID /bin/bash
 
 docker run -it -d -p 8080:80 sushipai/centos610 /bin/bash 
@@ -250,8 +248,6 @@ docker start centos610
 
 进入容器
 docker attach centos610
-
-
 
 
 # centos610 容器提交镜像到Hub.docker.com
