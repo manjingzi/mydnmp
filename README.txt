@@ -211,6 +211,9 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -a -q) -f
 
 #######################################################
+指定数据序号为14
+redis-cli -n 14 keys "cache_*" | xargs redis-cli -n 14 del
+
 linux redis 操作 批量模糊删除key
 redis-cli keys cache* | xargs redis-cli del
 
