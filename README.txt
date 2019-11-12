@@ -1,8 +1,7 @@
-## 本地安装 docker docker-compose(window不用安装 docker自带docker-compose)
+## 本地安装 docker https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe
 ## 网易加速器链接: http://hub-mirror.c.163.com
 ## ustc加速器链接:https://docker.mirrors.ustc.edu.cn
-## windows cmder软件 https://www.jianshu.com/p/5b7c985240a7
-## 本地安装 git 如果没有安装需要手动下载源码
+## 本地安装 git https://git-scm.com/download/win
 ## 以下命令在windows10 中的 git base 执行
 ## 免费申请HTTPS https://freessl.cn/ 选择 Let’s Encrypt
 
@@ -58,7 +57,7 @@ git clone https://github.com/SamJia/acemap-yii2-2019.git
 cd acemap-yii2-2019
 
 ## 项目组建更新
-composer update
+composer install
 
 ## 初始化项目 选择开发版 按0 再按yes
 php init 
@@ -87,7 +86,7 @@ git clone https://github.com/SamJia/acemap-yii2-2019.git
 cd acemap-yii2-2019
 
 ## 项目组建更新
-composer update
+composer install
 
 ## 初始化项目 选择开发版 按0 再按yes
 php init
@@ -228,7 +227,6 @@ dbsize 查看redis keys数量
 
 docker中清除redis数据
 
-
 清除缓存
 flushall  所有数据库
 flushdb  当前库
@@ -237,7 +235,6 @@ flushdb  当前库
 
 查询所有key：keys *
 删除指定key：del xxx（key）
-
 
 # docker run -it -d -p 8080:80 容器ID /bin/bash
 
@@ -252,7 +249,6 @@ docker start centos610
 进入容器
 docker attach centos610
 
-
 # centos610 容器提交镜像到Hub.docker.com
 
 # docker commit -a "用户名" -m "描述" 容器ID hub.docker.com仓库名
@@ -260,12 +256,3 @@ docker attach centos610
 docker commit -a "sushipai" -m "centos 6.10" 2d0723a49aa2 sushipai/centos610
 
 docker push sushipai/centos610
-
-
-
-
-
-
-
-
-
