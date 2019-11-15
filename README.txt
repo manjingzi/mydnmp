@@ -121,10 +121,11 @@ port:6379
 ## C:\Windows\System32\drivers\etc\hosts 配置域名指向
 
 127.0.0.1 acemap.jjcms.com
-127.0.0.1 acemap-api.jjcms.com
 127.0.0.1 old.jjcms.com
 127.0.0.1 www.jjcms.com
 127.0.0.1 api.jjcms.com
+127.0.0.1 wechat.jjcms.com
+127.0.0.1 weixin.jjcms.com
 
 ## 测试yii2 mysql redis 状态
 http://www.jjcms.com/
