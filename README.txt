@@ -126,6 +126,7 @@ port:6379
 127.0.0.1 api.jjcms.com
 127.0.0.1 wechat.jjcms.com
 127.0.0.1 weixin.jjcms.com
+127.0.0.1 cms.jjcms.com
 
 ## 测试yii2 mysql redis 状态
 http://www.jjcms.com/
