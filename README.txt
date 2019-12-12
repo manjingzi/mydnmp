@@ -127,6 +127,14 @@ port:6379
 127.0.0.1 wechat.jjcms.com
 127.0.0.1 weixin.jjcms.com
 127.0.0.1 cms.jjcms.com
+127.0.0.1 yiicms.jjcms.com
+
+127.0.0.1 appfront.fecshoptest.com
+127.0.0.1 appadmin.fecshoptest.com
+127.0.0.1 img.fecshoptest.com
+127.0.0.1 apphtml5.fecshoptest.com
+127.0.0.1 appserver.fecshoptest.com
+127.0.0.1 appapi.fecshoptest.com
 
 ## 测试yii2 mysql redis 状态
 http://www.jjcms.com/
@@ -258,3 +266,32 @@ docker attach centos610
 docker commit -a "sushipai" -m "centos 6.10" 2d0723a49aa2 sushipai/centos610
 
 docker push sushipai/centos610
+
+#############################################################
+本地git操作：
+
+使用gitBash进入项目根目录
+
+#初始化
+git init	
+
+#添加文件
+git add -A
+
+#提交第一个版本到本地
+git commit -m "initial commit"
+
+#远程github设置
+git remote add origin git@github.com:username/test.git
+
+#推送到github
+git push -u origin master
+
+#查看是否有文件修改
+git status
+
+#查看当前版本
+git branch
+
+#查看版本历史
+git log
