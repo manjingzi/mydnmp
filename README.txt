@@ -1,6 +1,9 @@
 ## 本地安装 docker https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe
+## 阿里云 https://xtwu7yys.mirror.aliyuncs.com
+
 ## 网易加速器链接: http://hub-mirror.c.163.com
 ## ustc加速器链接:https://docker.mirrors.ustc.edu.cn
+
 ## 本地安装 git https://git-scm.com/download/win
 ## 以下命令在windows10 中的 git base 执行
 ## 免费申请HTTPS https://freessl.cn/ 选择 Let’s Encrypt
