@@ -21,7 +21,6 @@
 ├── mysql                   MySQL数据目录
 ├── source.list             Debian源文件
 ├ 
-├ 
 ├ dnmp_www					需手动新建，目录名称是固定不能修改
 ├── acemap-yii2-2019		项目目录  			acemap.jjcms.com 访问
 ├── test					项目环境测试目录	www.jjcms.com 访问
@@ -298,3 +297,10 @@ git branch
 
 #查看版本历史
 git log
+
+###############################################################
+windows kill pid
+
+netstat -aon |findstr "3306"
+
+taskkill /pid 4 /f
